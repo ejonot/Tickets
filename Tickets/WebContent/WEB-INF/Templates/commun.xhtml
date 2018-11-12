@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+lang="fr"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="Commun.css" />
+	<title><ui:insert name="titre" /></title>
+	<link rel="icon" type="image/x-icon"
+		href="#{request.contextPath}/favicon.ico" />
+</h:head>
+
+
+     <h:body>
+<p:layout fullPage="true" class="ui-fluid">
+
+	<p:layoutUnit id="header" position="north" >
+		<ui:include src="/WEB-INF/Templates/EnTete.xhtml">
+    <ui:param name="titre" value="#{titre}" />
+</ui:include>	
+	</p:layoutUnit>
+
+<p:layoutUnit position="west" id="menu"  >
+			<ui:include src="/WEB-INF/Templates/Menu.xhtml">
+    <ui:param name="titre" value="#{titre}" />
+</ui:include>	
+	</p:layoutUnit>
+	
+<p:layoutUnit position="center" id="contenu"  >
+			<ui:insert name="content" />
+</p:layoutUnit>
+	
+	
+	</p:layout>
+
+
+</h:body>
+
+</html>

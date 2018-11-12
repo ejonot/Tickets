@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+   
+ 
+ <ui:composition template="/WEB-INF/Templates/commun.xhtml">
+ 		<ui:param name="titre" value="Consultation des tickets" />
+
+		<ui:define name="content">
+     <h1>Liste des tickets</h1>
+        <p:dataTable var="ticket" value="#{recherche.tickets}" widgetVar="tickets" emptyMessage="Aucun ticket trouvé">
+             <p:column headerText="Titre">
+                 <h:outputText value="#{ticket.titre}"/>
+             </p:column>
+            <p:column headerText="Etat">
+                <h:outputText value="#{ticket.etat.texte}"/>
+            </p:column>
+            <p:column headerText="Gravité">
+                <h:outputText value="#{ticket.gravite.texte}"/>
+            </p:column>
+        </p:dataTable>
+ </ui:define>
+ </ui:composition>
+     
+</html>
+
