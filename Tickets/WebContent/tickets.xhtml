@@ -10,7 +10,7 @@
  		<ui:param name="titre" value="Consultation des tickets" />
 
 		<ui:define name="content">
-     <h1>Liste des tickets</h1>
+     <h2>Liste des tickets</h2>
         <p:dataTable var="ticket" value="#{recherche.tickets}" widgetVar="tickets" emptyMessage="Aucun ticket trouvé">
              <p:column headerText="Titre">
                  <h:outputText value="#{ticket.titre}"/>
