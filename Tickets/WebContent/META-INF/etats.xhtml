@@ -1,5 +1,3 @@
-
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -10,20 +8,20 @@
 
 
 <ui:composition template="#{connexion.template}">
-	<ui:param name="titre" value="Consultation des tickets" />
+	<ui:param name="titre" value="Liste des états pour un ticket" />
 
 	<ui:define name="content">
 
 		<h:form id="form">
-			<p:dataList var="ticket" value="#{recherche.tickets}"
+			<p:dataList var="etat" value="#{recherche.etat}"
 				type="unordered" itemType="none" paginator="true" rows="10"
 				styleClass="paginated">
 				<f:facet name="header">
-            		Liste des tickets
+            		Liste des états pour un ticket
         		</f:facet>
-				<p:commandLink update=":form:detailTicket"
-					oncomplete="PF('dialogTicket').show()" title="Voir Ticket"
-					class="#{tiket.gravite}">
+				<p:commandLink update=":form:detailEtat"
+					oncomplete="PF('dialogEtat').show()" title="Voir Etat"
+					>
 					<f:setPropertyActionListener value="#{ticket}"
 						target="#{recherche.selectedTicket}" />
 					<h:outputText value="#{ticket.titre}, #{ticket.etat}" />
@@ -58,4 +56,3 @@
 </ui:composition>
 
 </html>
-

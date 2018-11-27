@@ -1,7 +1,14 @@
 package tickets;
 
-public class Gravite {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Gravite {
+	@Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	public Integer getId() {
 		return id;
 	}

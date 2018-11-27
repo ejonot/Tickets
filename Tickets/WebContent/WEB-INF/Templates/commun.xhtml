@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html
-lang="fr"
-xmlns="http://www.w3.org/1999/xhtml"
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
@@ -13,31 +11,35 @@ xmlns="http://www.w3.org/1999/xhtml"
 	<title><ui:insert name="titre" /></title>
 	<link rel="icon" type="image/x-icon"
 		href="#{request.contextPath}/favicon.ico" />
+		
+		
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+
+	  
 </h:head>
+<h:body>
+
+	<div class="ui-g">
+		<div class="ui-g-12 ui-md-12 " id="entete">
+			<ui:include src="/WEB-INF/Templates/EnTete.xhtml">
+				<ui:param name="titre" value="#{titre}" />
+			</ui:include>
+		</div>
 
 
-     <h:body>
-<p:layout fullPage="true" class="ui-fluid">
 
-	<p:layoutUnit id="header" position="north" >
-		<ui:include src="/WEB-INF/Templates/EnTete.xhtml">
-    <ui:param name="titre" value="#{titre}" />
-</ui:include>	
-	</p:layoutUnit>
+			<div class="ui-g-2 ui-md-2">
+				<ui:include src="/WEB-INF/Templates/Menu.xhtml">
+					<ui:param name="titre" value="#{titre}" />
+				</ui:include>
+			</div>	
 
-<p:layoutUnit position="west" id="menu"  >
-			<ui:include src="/WEB-INF/Templates/Menu.xhtml">
-    <ui:param name="titre" value="#{titre}" />
-</ui:include>	
-	</p:layoutUnit>
-	
-<p:layoutUnit position="center" id="contenu"  >
-			<ui:insert name="content" />
-</p:layoutUnit>
-	
-	
-	</p:layout>
+			<div class="ui-g-10 ui-md-10">
+				<ui:insert name="content" />
+			</div>
 
+
+	</div>
 
 </h:body>
 

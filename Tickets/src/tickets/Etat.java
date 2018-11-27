@@ -1,8 +1,15 @@
 package tickets;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Etat {
 
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	public Integer getId() {
 		return id;
 	}

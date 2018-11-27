@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import fr.jonot.ice.Database;
+
 
 @ManagedBean
 @SessionScoped
@@ -24,15 +26,21 @@ public class Recherche {
 		this.gravites = gravites;
 	}
 	
+	public Ticket getSelectedTicket() {
+		return selectedTicket;
+	}
+	public void setSelectedTicket(Ticket selectedTicket) {
+		this.selectedTicket = selectedTicket;
+	}
 	public List<Ticket> getTickets() {
-		List<Ticket> tickets=new ArrayList<Ticket>() ;
-		Ticket test=new Ticket(0, gravites.get(0), "test");
+		/*List<Ticket> tickets=new ArrayList<Ticket>() ;
+		Ticket test=new Ticket( gravites.get(0), "test");
 		test.setEtat(etats.get(0));
 		tickets.add(test );
-		return tickets;
+		return tickets;*/
+		return Database.getTickets();
 	}
-	private List<Etat> etats;
-	private List<Gravite> gravites;
+
 	
 	@PostConstruct
 	public void init() {
@@ -53,6 +61,8 @@ public class Recherche {
 		gravites.add(new Gravite(4,"Urgence", "#f2a99d"));
 	}
 	
-	
+	private List<Etat> etats;
+	private List<Gravite> gravites;
+	private Ticket selectedTicket;
 	
 }

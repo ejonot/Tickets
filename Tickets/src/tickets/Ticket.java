@@ -4,9 +4,18 @@ import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.ForeignKey;
 
 @ManagedBean
 @ViewScoped
+
+@Entity
 public class Ticket {
 	
 	public Integer getId() {
@@ -46,15 +55,24 @@ public class Ticket {
 		this.creation = creation;
 	}
 	public Ticket() {}
-	public Ticket(Integer id, Gravite gravite, String titre) {
-		setId(id);
+	public Ticket(Gravite gravite, String titre) {
 		setGravite(gravite);
 		setTitre(titre);
 		setCreation(new Date());
 	}
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@ManyToOne
+	@JoinColumn(name = "etat_id",
+	foreignKey = @ForeignKey(name = "ETAT_ID_FK")
+	)
 	private Etat etat;
+	@ManyToOne
+	@JoinColumn(name = "gravite_id",
+	foreignKey = @ForeignKey(name = "GRAVITE_ID_FK")
+	)
 	private Gravite gravite;
 	private String titre;
 	private String texte;
